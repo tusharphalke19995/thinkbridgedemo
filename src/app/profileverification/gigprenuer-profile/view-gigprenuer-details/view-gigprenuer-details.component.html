@@ -1,0 +1,257 @@
+<div class="container">
+  <nz-tabset>
+    <nz-tab nzTitle="Profile">
+      <nz-table [nzData] = "profile">
+        <thead>
+          <tr>
+            <th *ngFor="let field of fieldsArr">{{ field }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let obj of profile; let i = index">
+            <td>{{ obj.Field }}</td>
+            <td style="max-width: 300px">
+              {{ obj.Information }}
+            </td>
+            <td (click)="popupCreate(i,profile)" class="pointer" *ngIf="obj.Action != 'Action'">
+              {{ obj.Action }}
+              <i nz-icon [nzType]="'edit'" class="ant-avatar-blue"></i>
+            </td>
+            <td (click)="popupCreate(i,profile)" class="pointer" *ngIf="obj.Action == 'Action'">
+              <a class="font-italic">{{ obj.Action }}</a>
+            </td>
+            <td style="max-width: 200px">
+              {{ obj.Comment }}
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </nz-tab>
+
+    <nz-tab nzTitle="Education">
+      <div>
+        <h5 class="text-primary m-t-30">Education 1</h5>
+        <nz-table [nzData] ="education">
+          <thead>
+            <tr>
+              <th *ngFor="let field of fieldsArr">{{ field }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let obj of education; let i = index">
+              <td>{{ obj.Field }}</td>
+              <td *ngIf="i != 2" style="max-width: 300px">
+                {{ obj.Information }}
+              </td>
+              <td *ngIf="i == 2">
+                <a>{{ obj.Information }}</a>
+              </td>
+              <td (click)="popupCreate(i,education)" class="pointer">
+                {{ obj.Action }}
+                <i nz-icon [nzType]="'edit'" class="ant-avatar-blue"></i>
+              </td>
+              <td style="max-width: 200px">
+                {{ obj.Comment }}
+              </td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+      <h5 class="text-primary m-t-30">Education 2</h5>
+      <nz-table [nzData] = "education">
+        <thead>
+          <tr>
+            <th *ngFor="let field of fieldsArr">{{ field }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let obj of education; let i = index">
+            <td>{{ obj.Field }}</td>
+            <td *ngIf="i != 2" style="max-width: 300px">
+              {{ obj.Information }}
+            </td>
+            <td *ngIf="i == 2">
+              <a>{{ obj.Information }}</a>
+            </td>
+            <td (click)="popupCreate(i,education)" class="pointer">
+              {{ obj.Action }}
+              <i nz-icon [nzType]="'edit'" class="ant-avatar-blue"></i>
+            </td>
+            <td style="max-width: 200px">
+              {{ obj.Comment }}
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </nz-tab>
+
+    <nz-tab nzTitle="Experience">
+      <h5 class="text-primary m-t-30">Experience 1</h5>
+      <nz-table [nzData] = "experience">
+        <thead>
+          <tr>
+            <th *ngFor="let field of fieldsArr">{{ field }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let obj of experience; let i = index">
+            <td>{{ obj.Field }}</td>
+            <td *ngIf="i != 2" style="max-width: 300px">
+              {{ obj.Information }}
+            </td>
+            <td *ngIf="i == 2">
+              <tr *ngFor="let date of obj.Information">
+                {{
+                  date.Date
+                }}
+              </tr>
+            </td>
+            <td (click)="popupCreate(i,experience)" class="pointer">
+              {{ obj.Action }}
+              <i nz-icon [nzType]="'edit'" class="ant-avatar-blue"></i>
+            </td>
+            <td style="max-width: 200px">
+              {{ obj.Comment }}
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+      <h5 class="text-primary m-t-30">Experience 2</h5>
+      <nz-table [nzData] = "experience">
+        <thead>
+          <tr>
+            <th *ngFor="let field of fieldsArr">{{ field }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let obj of experience; let i = index">
+            <td>{{ obj.Field }}</td>
+            <td *ngIf="i != 2" style="max-width: 300px">
+              {{ obj.Information }}
+            </td>
+            <td *ngIf="i == 2">
+              <tr *ngFor="let date of obj.Information">
+                {{
+                  date.Date
+                }}
+              </tr>
+            </td>
+            <td (click)="popupCreate(i,experience)" class="pointer">
+              {{ obj.Action }}
+              <i nz-icon [nzType]="'edit'" class="ant-avatar-blue"></i>
+            </td>
+            <td style="max-width: 200px">
+              {{ obj.Comment }}
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </nz-tab>
+
+    <nz-tab nzTitle="Certifications">
+      <h5 class="text-primary m-t-30">Certification 1</h5>
+      <nz-table [nzData] = "certification">
+        <thead>
+          <tr>
+            <th *ngFor="let field of fieldsArr">{{ field }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let obj of certification; let i = index">
+            <td>{{ obj.Field }}</td>
+            <td *ngIf="i != 3" style="max-width: 300px">
+              {{ obj.Information }}
+            </td>
+            <td *ngIf="i == 3">
+              <a>{{ obj.Information }}</a>
+            </td>
+            <td (click)="popupCreate(i,certification)" class="pointer">
+              {{ obj.Action }}
+              <i nz-icon [nzType]="'edit'" class="ant-avatar-blue"></i>
+            </td>
+            <td style="max-width: 200px">
+              {{ obj.Comment }}
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+      <h5 class="text-primary m-t-30">Certification 2</h5>
+      <nz-table [nzData] = "certification">
+        <thead>
+          <tr>
+            <th *ngFor="let field of fieldsArr">{{ field }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let obj of certification; let i = index">
+            <td>{{ obj.Field }}</td>
+            <td *ngIf="i != 3" style="max-width: 300px">
+              {{ obj.Information }}
+            </td>
+            <td *ngIf="i == 3">
+              <a>{{ obj.Information }}</a>
+            </td>
+            <td (click)="popupCreate(i,certification)" class="pointer">
+              {{ obj.Action }}
+              <i nz-icon [nzType]="'edit'" class="ant-avatar-blue"></i>
+            </td>
+            <td style="max-width: 200px">
+              {{ obj.Comment }}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <button nz-button nzType="primary">Save</button>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </nz-tab>
+  </nz-tabset>
+  <nz-modal
+    [(nzVisible)]="isVisible"
+    nzTitle="Approve or Reject"
+    (nzOnCancel)="handleCancel()"
+    (nzOnOk)="handleOk()"
+  >
+    <h6>Select Action</h6>
+    <button
+      nz-button
+      nz-dropdown
+      [nzDropdownMenu]="menu4"
+      [nzTrigger]="'click'"
+    >
+      {{ selectedAction }}
+      <i nz-icon nzType="down"></i>
+    </button>
+    <nz-dropdown-menu #menu4="nzDropdownMenu">
+      <ul nz-menu>
+        <li
+          nz-menu-item
+          (click)="selectAction(obj)"
+          *ngFor="let obj of actionArray"
+        >
+          {{ obj }}
+        </li>
+      </ul>
+    </nz-dropdown-menu>
+    <ng-container *ngIf="selectedAction == 'Reject with Reason'">
+    <h6 class="m-t-50">Reject Reason</h6>
+    <div>
+      <textarea
+        nz-input
+        placeholder="Write a Reason"
+        [nzAutosize]="{ minRows: 3, maxRows: 5 }"
+      ></textarea>
+    </div>
+  </ng-container>
+  </nz-modal>
+
+  <!-- <div id="myModal" class="modal" *ngIf = "displayDoc">
+    <span class="close">
+      <i nz-icon [nzType]="'close'" class="ant-avatar-white"></i>
+    </span>
+    <img class="modal-content" src="aseets/images/product-1.jpg" id="img01">
+   <div id="caption"></div> 
+  </div> -->
+</div>

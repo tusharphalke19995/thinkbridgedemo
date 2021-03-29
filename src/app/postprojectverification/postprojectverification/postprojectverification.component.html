@@ -1,0 +1,89 @@
+<nz-tabset>
+    <nz-tab nzTitle="Priority Projects(06)">
+      <nz-table [nzData] = "priorityProject" class="overflow-auto">
+        <thead>
+          <tr>
+            <th>Posted Date</th>
+            <th>Employer Name</th>
+            <th>Project Title</th>
+            <th>Action Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let obj of priorityProject">
+            <td>{{ obj.Posted_Date }}</td>
+            <td>{{ obj.Employer_Name }}</td>
+            <td>{{ obj.Project_Title }}</td>
+            <td><a  routerLink = "../project-details">view</a></td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </nz-tab>
+          <nz-tab nzTitle="PostedProjects(06)">
+            <nz-table [nzData] = "priorityProject" class="overflow-auto">
+              <thead>
+                <tr>
+                  <th>Posted Date</th>
+                  <th>Employer Name</th>
+                  <th>Project Title</th>
+                  <th>Action Details</th>
+                </tr>
+              </thead>
+  
+              <tbody>
+                <tr *ngFor="let obj of priorityProject">
+                  <td>{{ obj.Posted_Date }}</td>
+                  <td>{{ obj.Employer_Name }}</td>
+                  <td>{{ obj.Project_Title }}</td>
+                  <td><a routerLink = "../project-details">view</a></td>
+                </tr>
+              </tbody>
+            </nz-table>
+          </nz-tab>
+  
+          <nz-tab nzTitle="Verified(123)">
+            <nz-table [nzData] = "priorityProject" class="overflow-auto">
+              <thead>
+                <tr>
+                  <th>Posted Date</th>
+                  <th>Employer Name</th>
+                  <th>Project Title</th>
+                  <th>Action Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let obj of priorityProject">
+                  <td>{{ obj.Posted_Date }}</td>
+                  <td>{{ obj.Employer_Name }}</td>
+                  <td>{{ obj.Project_Title }}</td>
+                  <td><a routerLink = "../project-details">view</a></td>
+                </tr>
+              </tbody>
+            </nz-table>
+          </nz-tab>
+  
+          <nz-tab nzTitle="Rejected(07)">
+            <nz-table [nzData] = "priorityProject" class="overflow-auto">
+              <thead>
+                <tr>
+                  <th>Posted Date</th>
+                  <th>Employer Name</th>
+                  <th>Project Title</th>
+                  <th>Action Details</th>
+                </tr>
+              </thead>
+  
+              <tbody>
+                <tr *ngFor="let obj of priorityProject">
+                  <td>{{ obj.Posted_Date }}</td>
+                  <td>{{ obj.Employer_Name }}</td>
+                  <td>{{ obj.Project_Title }}</td>
+                  <td><a routerLink = "../project-details">view</a></td>
+                </tr>
+              </tbody>
+            </nz-table>
+          </nz-tab>
+     
+  </nz-tabset>
+  
+  

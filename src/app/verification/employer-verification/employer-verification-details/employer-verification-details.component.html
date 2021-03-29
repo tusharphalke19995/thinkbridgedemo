@@ -1,0 +1,66 @@
+<nz-tabset>
+    <nz-tab nzTitle="Profile">
+        <ng-container *ngFor="let profile of profileArr,let i = index">
+          <h2 [class]="i>0?'m-t-40':''">{{ profile.Name }}</h2>
+          <nz-table [nzData] ="profile.infoArr">
+            <thead>
+              <tr>
+                <th *ngFor="let obj of profileFieldsArr">{{ obj }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let info of profile.infoArr,let j = index">
+                <td>{{ info.Field }}</td>
+                <td>{{ info.Document_Type }}</td>
+                <td>
+                  <a (click)="myFunc()">{{ info.Document }}</a>
+                </td>
+                <td class="pointer" (click)="popupCreate(i,j)">
+                  {{ info.Action }}
+                  <i *ngIf="info.Action" class="ant-avatar-blue" nz-icon [nzType]="'edit'"></i>
+                </td>
+                <td>
+                  <div style="max-width: 200px">
+                    {{ info.Comment }}
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </nz-table>
+        </ng-container>
+      </nz-tab>
+</nz-tabset>
+
+<nz-modal
+[(nzVisible)]="isVisible"
+nzTitle="Approve or Reject"
+(nzOnCancel)="handleCancel()"
+(nzOnOk)="handleOk()"
+>
+<h6>Select Action</h6>
+<button nz-button nz-dropdown [nzDropdownMenu]="menu" [nzTrigger]="'click'" >
+  {{ selectedAction }}
+  <i nz-icon nzType="down"></i>
+</button>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu>
+    <li
+      nz-menu-item
+      (click)="selectAction(obj)"
+      *ngFor="let obj of actionArray"
+    >
+      {{ obj }}
+    </li>
+  </ul>
+</nz-dropdown-menu>
+ <ng-container *ngIf="selectedAction == 'Reject with Reason'">
+  <h6 class="m-t-50">Reject Reason</h6>
+<div>
+  <textarea
+    nz-input
+    placeholder="Write a Reason"
+    [nzAutosize]="{ minRows: 3, maxRows: 5 }"
+  ></textarea>
+</div>
+</ng-container>
+</nz-modal>

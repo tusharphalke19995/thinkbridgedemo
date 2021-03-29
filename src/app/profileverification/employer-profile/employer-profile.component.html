@@ -1,0 +1,61 @@
+<div class="container">
+    <nz-tabset>
+        <nz-tab nzTitle="Not Verified(06)">
+            <nz-table [nzData] ="profileDetails" class="overflow-auto">
+                <thead>
+                  <tr>
+                    <th>NAME</th>
+                    <th>PROFILE TYPE</th>
+                    <th>PROFILE</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let obj of profileDetails">
+                    <td>{{obj.Name}}</td>
+                    <td>{{obj.Profile_Type}}</td>
+                    <td class="font-italic text-gray">{{obj.Profile}}</td>
+                    <td routerLink = "../employer-details"><a>View</a></tr>
+                </tbody>
+              </nz-table>
+        </nz-tab>
+        <nz-tab nzTitle="Verified(123)">
+            <nz-table [nzData]="profileDetails" class="overflow-auto">
+                <thead>
+                  <tr>
+                    <th>NAME</th>
+                    <th>PROFILE TYPE</th>
+                    <th>PROFILE</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let obj of profileDetails,let i = index">
+                    <td>{{obj.Name}}</td>
+                    <td>{{obj.Profile_Type}}</td>
+                    <td><i (click)="checkProfile(i)" [class]="obj.Profile_Status?'ant-avatar-green':'ant-avatar-red'" nz-icon [nzType]="obj.Profile_Status?'check-circle':'close-circle'"></i></td>
+                    <td routerLink = "../employer-details"><a>View</a></tr>
+                </tbody>
+              </nz-table>
+        </nz-tab>
+        <nz-tab nzTitle="Rejected(07)">
+            <nz-table [nzData]="profileDetails" class="overflow-auto">
+                <thead>
+                  <tr>
+                    <th>NAME</th>
+                    <th>PROFILE TYPE</th>
+                    <th>PROFILE</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let obj of profileDetails,let i=index">
+                    <td>{{obj.Name}}</td>
+                    <td>{{obj.Profile_Type}}</td>
+                    <td><i (click)="checkProfile(i)" [class]="obj.Profile_Status?'ant-avatar-green':'ant-avatar-red'" nz-icon [nzType]="obj.Profile_Status?'check-circle':'close-circle'"></i></td>
+                    <td><a routerLink = "../employer-details">View</a></tr>
+                </tbody>
+              </nz-table>
+        </nz-tab>
+       </nz-tabset>
+</div>

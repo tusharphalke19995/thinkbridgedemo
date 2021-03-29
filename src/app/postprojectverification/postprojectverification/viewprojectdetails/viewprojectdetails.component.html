@@ -1,0 +1,81 @@
+<nz-tabset>
+    <nz-tab nzTitle="ProjectDetails">
+        <nz-table [nzData] = "projectDetails">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Information</th>
+              <th>Action</th>
+              <th>Comment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let obj of projectDetails; let i = index">
+              <td>{{ obj.Field }}</td>
+              <td *ngIf="i != 2" style="max-width: 300px">
+                {{ obj.Information }}
+               </td>
+              <td *ngIf="i == 2">
+                <tr *ngFor="let info of obj.Information">
+                  <td>{{ info.doc_name }}</td>
+                  <td><a class="p-l-20">View</a></td>
+                </tr>
+              </td>
+              <td *ngIf="obj.Action != 'Action'" (click) = "popupCreate(i)" class="pointer">
+                {{ obj.Action }}
+                <i class="ant-avatar-blue" nz-icon [nzType]="'edit'"></i>
+              </td>
+              <td *ngIf="obj.Action == 'Action'" (click) = "popupCreate(i)" class="pointer">
+                <a>{{ obj.Action }}</a>
+              </td>
+              
+              <td style="max-width: 200px">
+              {{ obj.Comment }}
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3"></td>
+              <td><button class="m-l-60" nz-button nzType="primary">Save</button></td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </nz-tab>
+</nz-tabset>
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Approve or Reject"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  >
+  <h6>Select Action</h6>
+  <button
+    nz-button
+    nz-dropdown
+    [nzDropdownMenu]="menu4"
+    [nzTrigger]="'click'"
+  >
+    {{ selectedAction }}
+    <i nz-icon nzType="down"></i>
+  </button>
+  <nz-dropdown-menu #menu4="nzDropdownMenu">
+    <ul nz-menu>
+      <li
+        nz-menu-item
+        (click)="selectAction(obj)"
+        *ngFor="let obj of actionArray"
+      >
+        {{ obj }}
+      </li>
+    </ul>
+  </nz-dropdown-menu>
+   <ng-container *ngIf="selectedAction == 'Reject with Reason'">
+    <h6 class="m-t-50">Reject Reason</h6>
+  <div>
+    <textarea
+      nz-input
+      placeholder="Write a Reason"
+      [nzAutosize]="{ minRows: 3, maxRows: 5 }"
+    ></textarea>
+  </div>
+  </ng-container>
+  </nz-modal>
