@@ -11,10 +11,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let obj of profileDetails">
-                    <td>{{obj.Name}}</td>
-                    <td>{{obj.Profile_Type}}</td>
-                    <td class="font-italic text-gray">{{obj.Profile}}</td>
+                  <tr>
+                    <td>{{employerDetails?.firstName}} {{employerDetails?.lastName}}</td>
+                    <td>{{employerDetails?.roleType == "I"?'Individual Employer' : 'Enterprise'}}</td>
+                    <td class="font-italic text-gray">{{profileDetails[2].Profile}}</td>
                     <td routerLink = "../employer-details"><a>View</a></tr>
                 </tbody>
               </nz-table>
@@ -30,10 +30,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let obj of profileDetails,let i = index">
-                    <td>{{obj.Name}}</td>
-                    <td>{{obj.Profile_Type}}</td>
-                    <td><i (click)="checkProfile(i)" [class]="obj.Profile_Status?'ant-avatar-green':'ant-avatar-red'" nz-icon [nzType]="obj.Profile_Status?'check-circle':'close-circle'"></i></td>
+                  <tr>
+                    <td>{{employerDetails?.firstName}} {{employerDetails?.lastName}}</td>
+                    <td>{{employerDetails?.roleType == "I"?'Individual Employer' : 'Enterprise'}}</td>
+                    <td><i (click)="checkProfile(i)" [class]="profileDetails[2].Profile_Status?'ant-avatar-green':'ant-avatar-red'" nz-icon [nzType]="profileDetails[1].Profile_Status?'check-circle':'close-circle'"></i></td>
                     <td routerLink = "../employer-details"><a>View</a></tr>
                 </tbody>
               </nz-table>
@@ -49,10 +49,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let obj of profileDetails,let i=index">
-                    <td>{{obj.Name}}</td>
-                    <td>{{obj.Profile_Type}}</td>
-                    <td><i (click)="checkProfile(i)" [class]="obj.Profile_Status?'ant-avatar-green':'ant-avatar-red'" nz-icon [nzType]="obj.Profile_Status?'check-circle':'close-circle'"></i></td>
+                  <tr>
+                    <td>{{employerDetails?.firstName}} {{employerDetails?.lastName}}</td>
+                    <td>{{employerDetails?.roleType == "I"?'Individual Employer' : 'Enterprise'}}</td>
+                    <td><i (click)="checkProfile(i)" [class]="profileDetails[2].Profile_Status?'ant-avatar-green':'ant-avatar-red'" nz-icon [nzType]="profileDetails[2].Profile_Status?'check-circle':'close-circle'"></i></td>
                     <td><a routerLink = "../employer-details">View</a></tr>
                 </tbody>
               </nz-table>

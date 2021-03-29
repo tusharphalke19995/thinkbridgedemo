@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+      // SPRING_SERVER_URL: 'http://192.168.2.101:9095/',
+      SPRING_SERVER_URL: 'http://192.168.2.111:9095/',
+      // SPRING_SERVER_URL: 'http://192.168.2.106:9095/',
+      AWS_COGNITO_URL: 'http://15.207.215.148:3030',
 };
 
 /*

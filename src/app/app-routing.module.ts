@@ -10,9 +10,11 @@ import { CommonLayout_ROUTES } from "./shared/routes/common-layout.routes";
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: '/dashboard/default',
-        pathMatch: 'full',
+        redirectTo: 'login-3',
+        pathMatch: 'full'
+    
     },
+
     { 
         path: '', 
         component: CommonLayoutComponent,
@@ -22,7 +24,11 @@ const appRoutes: Routes = [
         path: '', 
         component: FullLayoutComponent, 
         children: FullLayout_ROUTES
-    }
+    },
+    {
+        path: '',
+        loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule)
+    },
 ];
 
 @NgModule({

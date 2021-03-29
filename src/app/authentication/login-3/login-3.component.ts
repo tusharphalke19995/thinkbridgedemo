@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { FormBuilder, FormGroup,  Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
 
 @Component({
     templateUrl: './login-3.component.html'
@@ -16,7 +16,8 @@ export class Login3Component {
         }
     }
 
-    constructor(private fb: FormBuilder) {
+    constructor(private fb: FormBuilder,
+        private router: Router,) {
     }
 
     ngOnInit(): void {
@@ -24,5 +25,18 @@ export class Login3Component {
             userName: [ null, [ Validators.required ] ],
             password: [ null, [ Validators.required ] ]
         });
+    }
+
+    signIn() {
+        let role: string;
+        let roleType: string;
+
+        let data = {
+            'email': this.loginForm?.get('userName').value,
+            'password': this.loginForm?.get('password').value
+        }
+        this.router.navigate(['default'])
+
+        console.log("data",data)
     }
 }    

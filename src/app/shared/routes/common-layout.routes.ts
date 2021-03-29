@@ -10,10 +10,86 @@ export const CommonLayout_ROUTES: Routes = [
     },
 
     //Apps
+    // {
+    //     path: 'apps',
+    //     data: {
+    //         title: 'Apps'
+    //     },
+    //     children: [
+    //         {
+    //             path: '',
+    //             redirectTo: '/dashboard',
+    //             pathMatch: 'full'
+    //         }, 
+    //         {
+    //             path: '',
+    //             loadChildren: () => import('../../apps/apps.module').then(m => m.AppsModule)
+    //         },
+    //     ]    
+    // },
+
+    // //Component
+    // {
+    //     path: 'demo',
+    //     component: ComponentsComponent,
+    //     children: [
+    //         {
+    //             path: '',
+    //             redirectTo: '/components/affix',
+    //             pathMatch: 'full'
+    //         }, 
+    //         {
+    //             path: '',
+    //             loadChildren: () => import('../../components/components.module').then(m => m.ComponentsModule)
+    //         }
+    //     ],
+    //     data: {
+    //         title: 'Components '
+    //     }
+    // },
+
+    // // Charts
+    // {
+    //     path: 'charts',
+    //     data: {
+    //         title: 'Charts'
+    //     },
+    //     children: [
+    //         {
+    //             path: '',
+    //             redirectTo: '/dashboard',
+    //             pathMatch: 'full'
+    //         }, 
+    //         {
+    //             path: '',
+    //             loadChildren: () => import('../../charts/charts.module').then(m => m.ChartsModule)
+    //         },
+    //     ]    
+    // },
+
+    // //Pages
+    // {
+    //     path: 'pages',
+    //     data: {
+    //         title: 'Pages '
+    //     },
+    //     children: [
+    //         {
+    //             path: '',
+    //             redirectTo: '/dashboard',
+    //             pathMatch: 'full'
+    //         }, 
+    //         {
+    //             path: '',
+    //             loadChildren: () => import('../../pages/pages.module').then(m => m.PagesModule)
+    //         },
+    //     ]    
+    // },
+    
     {
-        path: 'apps',
+        path: 'project-verification',
         data: {
-            title: 'Apps'
+            title: 'Project-Verification '
         },
         children: [
             {
@@ -23,36 +99,15 @@ export const CommonLayout_ROUTES: Routes = [
             }, 
             {
                 path: '',
-                loadChildren: () => import('../../apps/apps.module').then(m => m.AppsModule)
+                loadChildren: () => import('../../postprojectverification/postprojectverification.module').then(m => m.PostprojectverificationModule)
             },
         ]    
     },
 
-    //Component
     {
-        path: 'demo',
-        component: ComponentsComponent,
-        children: [
-            {
-                path: '',
-                redirectTo: '/components/affix',
-                pathMatch: 'full'
-            }, 
-            {
-                path: '',
-                loadChildren: () => import('../../components/components.module').then(m => m.ComponentsModule)
-            }
-        ],
+        path: 'profile-verification',
         data: {
-            title: 'Components '
-        }
-    },
-
-    // Charts
-    {
-        path: 'charts',
-        data: {
-            title: 'Charts'
+            title: 'Profile-Verification'
         },
         children: [
             {
@@ -62,16 +117,14 @@ export const CommonLayout_ROUTES: Routes = [
             }, 
             {
                 path: '',
-                loadChildren: () => import('../../charts/charts.module').then(m => m.ChartsModule)
+                loadChildren: () => import('../../profileverification/profileverification.module').then(m => m.ProfileverificationModule)
             },
         ]    
     },
-
-    //Pages
     {
-        path: 'pages',
+        path: 'members-plan',
         data: {
-            title: 'Pages '
+            title: 'Members Plan'
         },
         children: [
             {
@@ -81,8 +134,59 @@ export const CommonLayout_ROUTES: Routes = [
             }, 
             {
                 path: '',
-                loadChildren: () => import('../../pages/pages.module').then(m => m.PagesModule)
+                loadChildren: () => import('../../members-plan/members-plan.module').then(m => m.MembersPlanModule)
             },
         ]    
-    }    
+    },
+    {
+        path: 'manager-faq',
+        data: {
+            title: 'Manager FAQ'
+        },
+        children: [
+            {
+                path: '',
+                redirectTo: '/dashboard',
+                pathMatch: 'full'
+            }, 
+            {
+                path: '',
+                loadChildren: () => import('../../manager-faq/manager-faq.module').then(m => m.ManagerFAQModule)
+            },
+        ]    
+    },
+    {
+        path: 'manage-user',
+        data: {
+            title: 'Manage User'
+        },
+        children: [
+            {
+                path: '',
+                redirectTo: '/dashboard',
+                pathMatch: 'full'
+            }, 
+            {
+                path: '',
+                loadChildren: () => import('../../manage-user/manage-user.module').then(m => m.ManageUserModule)
+            },
+        ]    
+    },
+    {
+        path: 'verification',
+        data: {
+            title: 'Verification'
+        },
+        children: [
+            {
+                path: '',
+                redirectTo: '/dashboard',
+                pathMatch: 'full'
+            }, 
+            {
+                path: '',
+                loadChildren: () => import('../../verification/verification.module').then(m => m.VerificationModule)
+            },
+        ]    
+    }                                    
 ];

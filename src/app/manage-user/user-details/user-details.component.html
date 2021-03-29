@@ -12,7 +12,7 @@
                 </div>
                 <div class="m-b-10 m-r-20 d-flex align-items-center">
                     <nz-select style="min-width: 220px;" class="w-100" nzPlaceHolder="Status"  (ngModelChange)="myFunc($event)">
-                        <nz-option *ngFor="let obj of status" [nzLabel]="status.Status" [nzValue]="status.StatusId"></nz-option>
+                        <nz-option *ngFor="let obj of status" [nzLabel]="obj?.Status" [nzValue]="obj?.StatusId"></nz-option>
                     </nz-select>
                 </div>
             </div>          

@@ -11,14 +11,14 @@ const routes: Routes = [
             path: 'employer-verification',
             component: EmployerVerificationComponent,
             data: {
-                title: 'Employer V'
+                title: 'Employer Verification'
             }
         },
         {
             path: 'gigprenuer-verification',
             component: GigprenuerVerificationComponent,
             data: {
-                title: 'Gigprenuer V'
+                title: 'Gigprenuer Verification'
             }
         },
         {

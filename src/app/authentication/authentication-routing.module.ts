@@ -11,20 +11,20 @@ import { Error1Component } from './error-1/error-1.component';
 import { Error2Component } from './error-2/error-2.component';
 
 const routes: Routes = [
-    {
-        path: 'login-1',
-        component: Login1Component,
-        data: {
-            title: 'Login 1'
-        }
-    },
-    {
-        path: 'login-2',
-        component: Login2Component,
-        data: {
-            title: 'Login 2'
-        }
-    },
+    // {
+    //     path: 'login-1',
+    //     component: Login1Component,
+    //     data: {
+    //         title: 'Login 1'
+    //     }
+    // },
+    // {
+    //     path: 'login-2',
+    //     component: Login2Component,
+    //     data: {
+    //         title: 'Login 2'
+    //     }
+    // },
     {
         path: 'login-3',
         component: Login3Component,
@@ -32,20 +32,20 @@ const routes: Routes = [
             title: 'Login 3'
         }
     },
-    {
-        path: 'sign-up-1',
-        component: SignUp1Component,
-        data: {
-            title: 'Sign Up 1'
-        }
-    },
-    {
-        path: 'sign-up-2',
-        component: SignUp2Component,
-        data: {
-            title: 'Sign Up 2'
-        }
-    },
+    // {
+    //     path: 'sign-up-1',
+    //     component: SignUp1Component,
+    //     data: {
+    //         title: 'Sign Up 1'
+    //     }
+    // },
+    // {
+    //     path: 'sign-up-2',
+    //     component: SignUp2Component,
+    //     data: {
+    //         title: 'Sign Up 2'
+    //     }
+    // },
     {
         path: 'sign-up-3',
         component: SignUp3Component,

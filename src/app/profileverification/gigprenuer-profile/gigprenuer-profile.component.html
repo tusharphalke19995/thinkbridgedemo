@@ -1,117 +1,136 @@
 <div class="container">
-    <nz-tabset>
-        <nz-tab nzTitle="Not Verified(06)">
-            <nz-table [nzData]="notVerified" class="overflow-auto">
-                <thead>
-                  <tr>
-                    <th>NAME</th>
-                    <th>PROFILE TYPE</th>
-                    <th>PROFILE</th>
-                    <th>EDUCATION</th>
-                    <th>EXPERIENCE</th>
-                    <th>CERTIFICATION</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let obj of notVerified">
-                    <td>{{obj.Name}}</td>
-                    <td>{{obj.Profile_Type}}</td>
-                    <td style="text-align: center;" class="font-italic text-gray" >
-                        <ng-container  *ngIf="!obj.Profile">Pending</ng-container>
-                        <i class='ant-avatar-green' *ngIf="obj.Profile" nz-icon [nzType]="'check-circle'"></i>
-                    </td>
-                    
-                    <td class="font-italic text-gray" style="text-align: center;">
-                      <ng-container  *ngIf="obj.Profile_Type == 'Gigprenuer'">{{obj.Education}}</ng-container>
-                      <ng-container  *ngIf="obj.Profile_Type != 'Gigprenuer'">-</ng-container>
-                    </td>
-                    <td class="font-italic text-gray" style="text-align: center;">
-                      <ng-container  *ngIf="obj.Profile_Type == 'Gigprenuer'">{{obj.Experience}}</ng-container>
-                      <ng-container  *ngIf="obj.Profile_Type != 'Gigprenuer'">-</ng-container>
-                    </td>
-                    <td class="font-italic text-gray" style="text-align: center;">
-                      <ng-container  *ngIf="obj.Profile_Type == 'Gigprenuer'">{{obj.Certification}}</ng-container>
-                      <ng-container  *ngIf="obj.Profile_Type != 'Gigprenuer'">-</ng-container>
-                    </td>
-                    <td><a routerLink = "../gigprenuer-details">View</a></tr>
-                </tbody>
-              </nz-table>
-        </nz-tab>
-        <nz-tab nzTitle="Verified(123)">
-            <nz-table [nzData]="verified" class="overflow-auto">
-                <thead>
-                  <tr>
-                    <th>NAME</th>
-                    <th>PROFILE TYPE</th>
-                    <th>PROFILE</th>
-                    <th>EDUCATION</th>
-                    <th>EXPERIENCE</th>
-                    <th>CERTIFICATION</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let obj of verified">
-                    <td>{{obj.Name}}</td>
-                    <td>{{obj.Profile_Type}}</td>
-                    <td style="text-align: center;" class="font-italic text-gray">
-                        <ng-container  *ngIf="!obj.Profile">-</ng-container>
-                        <i class='ant-avatar-green' *ngIf="obj.Profile" nz-icon [nzType]="'check-circle'"></i>
-                    </td>
-                    <td style="text-align: center;"class="font-italic text-gray">
-                        <ng-container  *ngIf="obj.Profile_Type == 'Gigprenuer Agency'">-</ng-container>
-                        <i [class]="obj.Education?'ant-avatar-green':'ant-avatar-red'" *ngIf="obj.Profile_Type != 'Gigprenuer Agency'" nz-icon [nzType]="obj.Education?'check-circle':'close-circle'"></i>                    </td>
-                    <td style="text-align: center;" class="font-italic text-gray">
-                        <ng-container  *ngIf="obj.Profile_Type == 'Gigprenuer Agency'">-</ng-container>
-                        <i [class]="obj.Experience?'ant-avatar-green':'ant-avatar-red'" *ngIf="obj.Profile_Type != 'Gigprenuer Agency'" nz-icon [nzType]="obj.Experience?'check-circle':'close-circle'"></i>
-                    </td>
-                    <td style="text-align: center;" class="font-italic text-gray">
-                        <ng-container  *ngIf="obj.Profile_Type == 'Gigprenuer Agency'">-</ng-container>
-                        <i [class]="obj.Certification?'ant-avatar-green':'ant-avatar-red'" *ngIf="obj.Profile_Type != 'Gigprenuer Agency'" nz-icon [nzType]="obj.Certification?'check-circle':'close-circle'"></i>
-                    </td>
-                    
-                    
-                    <td><a routerLink = "../gigprenuer-details">View</a></tr>
-                </tbody>
-              </nz-table>
-        </nz-tab>
-        <nz-tab nzTitle="Rejected(123)">
-            <nz-table [nzData]="rejected" class="overflow-auto">
-                <thead>
-                  <tr>
-                    <th>NAME</th>
-                    <th>PROFILE TYPE</th>
-                    <th>PROFILE</th>
-                    <th>EDUCATION</th>
-                    <th>EXPERIENCE</th>
-                    <th>CERTIFICATION</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let obj of rejected">
-                    <td>{{obj.Name}}</td>
-                    <td>{{obj.Profile_Type}}</td>
-                    <td style="text-align: center;" class="font-italic text-gray">
-                        <ng-container  *ngIf="!obj.Profile">-</ng-container>
-                        <i class='ant-avatar-green' *ngIf="obj.Profile" nz-icon [nzType]="'check-circle'"></i>
-                    </td>
-                    <td style="text-align: center;"  class="font-italic text-gray">
-                      <ng-container  *ngIf="obj.Profile_Type == 'Gigprenuer Agency'">-</ng-container>
-                      <i [class]="obj.Education?'ant-avatar-green':'ant-avatar-red'" *ngIf="obj.Profile_Type != 'Gigprenuer Agency'" nz-icon [nzType]="obj.Education?'check-circle':'close-circle'"></i>
-                    </td>
-                    <td style="text-align: center;" class="font-italic text-gray">
-                        <ng-container  *ngIf="obj.Profile_Type == 'Gigprenuer Agency'">-</ng-container>
-                        <i [class]="obj.Experience?'ant-avatar-green':'ant-avatar-red'" *ngIf="obj.Profile_Type != 'Gigprenuer Agency'" nz-icon [nzType]="obj.Experience?'check-circle':'close-circle'"></i>                    </td>
-                    <td style="text-align: center;">
-                      <ng-container  *ngIf="obj.Profile_Type == 'Gigprenuer Agency'" class="font-italic text-gray">-</ng-container>
-                      <i [class]="obj.Certification?'ant-avatar-green':'ant-avatar-red'" *ngIf="obj.Profile_Type != 'Gigprenuer Agency'" nz-icon [nzType]="obj.Certification?'check-circle':'close-circle'"></i>                    </td>
-                    
-                    
-                    <td><a routerLink = "../gigprenuer-details">View</a></tr>
-                </tbody>
-              </nz-table>
-        </nz-tab>
-        </nz-tabset>
-        </div>
+  <nz-tabset>
+    <nz-tab nzTitle="Not Verified(06)">
+      <nz-table [nzData]="notVerified" class="overflow-auto">
+        <thead>
+          <tr>
+            <th>NAME</th>
+            <th>PROFILE TYPE</th>
+            <th>PROFILE</th>
+            <th>EDUCATION</th>
+            <th>EXPERIENCE</th>
+            <th>CERTIFICATION</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{freelancerProfileDetails?.firstName}} {{freelancerProfileDetails?.lastName}}</td>
+            <td>{{freelancerProfileDetails?.roleType == 'I' ? 'Gigprenuer':'Gigprenuer Agency'}}</td>
+            <td class="font-italic text-gray">
+              <ng-container *ngIf="!notVerified[2].Profile">Pending</ng-container>
+              <i class='ant-avatar-green' *ngIf="notVerified[2].Profile" nz-icon [nzType]="'check-circle'"></i>
+            </td>
+
+            <td class="font-italic text-gray">
+              <ng-container *ngIf="freelancerProfileDetails?.roleType == 'I'">{{notVerified[2].Education}}</ng-container>
+              <ng-container *ngIf="freelancerProfileDetails?.roleType == 'A'">-</ng-container>
+            </td>
+            <td class="font-italic text-gray">
+              <ng-container *ngIf="freelancerProfileDetails?.roleType == 'I'">{{notVerified[2].Experience}}</ng-container>
+              <ng-container *ngIf="freelancerProfileDetails?.roleType == 'A'">-</ng-container>
+            </td>
+            <td class="font-italic text-gray">
+              <ng-container *ngIf="freelancerProfileDetails?.roleType == 'I'">{{notVerified[2].Certification}}</ng-container>
+              <ng-container *ngIf="freelancerProfileDetails?.roleType == 'A'">-</ng-container>
+            </td>
+            <td><a routerLink="../gigprenuer-details">View</a>
+          </tr>
+        </tbody>
+      </nz-table>
+    </nz-tab>
+    <nz-tab nzTitle="Verified(123)">
+      <nz-table [nzData]="verified" class="overflow-auto">
+        <thead>
+          <tr>
+            <th>NAME</th>
+            <th>PROFILE TYPE</th>
+            <th>PROFILE</th>
+            <th>EDUCATION</th>
+            <th>EXPERIENCE</th>
+            <th>CERTIFICATION</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{freelancerProfileDetails?.firstName}} {{freelancerProfileDetails?.lastName}}</td>
+            <td>{{freelancerProfileDetails?.roleType == 'I' ? 'Gigprenuer':'Gigprenuer Agency'}}</td>
+            <td class="font-italic text-gray">
+              <ng-container *ngIf="!verified[2].Profile">-</ng-container>
+              <i class='ant-avatar-green' *ngIf="verified[2].Profile" nz-icon [nzType]="'check-circle'"></i>
+            </td>
+            <td class="font-italic text-gray">
+              <ng-container *ngIf="freelancerProfileDetails?.roleType == 'A'">-</ng-container>
+              <i [class]="verified[2].Education?'ant-avatar-green':'ant-avatar-red'"
+                *ngIf="freelancerProfileDetails?.roleType == 'I'" nz-icon
+                [nzType]="verified[2].Education?'check-circle':'close-circle'"></i>
+            </td>
+            <td class="font-italic text-gray">
+              <ng-container *ngIf="freelancerProfileDetails?.roleType == 'A'">-</ng-container>
+              <i [class]="verified[2].Experience?'ant-avatar-green':'ant-avatar-red'"
+                *ngIf="freelancerProfileDetails?.roleType == 'I'" nz-icon
+                [nzType]="verified[2].Experience?'check-circle':'close-circle'"></i>
+            </td>
+            <td class="font-italic text-gray">
+              <ng-container *ngIf="freelancerProfileDetails?.roleType == 'A'">-</ng-container>
+              <i [class]="verified[2].Certification?'ant-avatar-green':'ant-avatar-red'"
+                *ngIf="freelancerProfileDetails?.roleType == 'I'" nz-icon
+                [nzType]="verified[2].Certification?'check-circle':'close-circle'"></i>
+            </td>
+
+
+            <td><a routerLink="../gigprenuer-details">View</a>
+          </tr>
+        </tbody>
+      </nz-table>
+    </nz-tab>
+    <nz-tab nzTitle="Rejected(123)">
+      <nz-table [nzData]="rejected" class="overflow-auto">
+        <thead>
+          <tr>
+            <th>NAME</th>
+            <th>PROFILE TYPE</th>
+            <th>PROFILE</th>
+            <th>EDUCATION</th>
+            <th>EXPERIENCE</th>
+            <th>CERTIFICATION</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{freelancerProfileDetails?.firstName}} {{freelancerProfileDetails?.lastName}}</td>
+            <td>{{freelancerProfileDetails?.firstName}} {{freelancerProfileDetails?.lastName}}</td>
+            <td class="font-italic text-gray">
+              <ng-container *ngIf="!rejected[2].Profile">-</ng-container>
+              <i class='ant-avatar-green' *ngIf="rejected[2].Profile" nz-icon [nzType]="'check-circle'"></i>
+            </td>
+            <td class="font-italic text-gray">
+              <ng-container *ngIf="freelancerProfileDetails?.roleType == 'A'">-</ng-container>
+              <i [class]="rejected[2].Education?'ant-avatar-green':'ant-avatar-red'"
+                *ngIf="freelancerProfileDetails?.roleType == 'I'" nz-icon
+                [nzType]="rejected[2].Education?'check-circle':'close-circle'"></i>
+            </td>
+            <td class="font-italic text-gray">
+              <ng-container *ngIf="freelancerProfileDetails?.roleType == 'A'">-</ng-container>
+              <i [class]="rejected[2].Experience?'ant-avatar-green':'ant-avatar-red'"
+                *ngIf="freelancerProfileDetails?.roleType == 'I'" nz-icon
+                [nzType]="rejected[2].Experience?'check-circle':'close-circle'"></i>
+            </td>
+            <td class="font-italic text-gray">
+              <ng-container *ngIf="freelancerProfileDetails?.roleType == 'A'" class="font-italic text-gray">-
+              </ng-container>
+              <i [class]="rejected[2].Certification?'ant-avatar-green':'ant-avatar-red'"
+                *ngIf="freelancerProfileDetails?.roleType == 'I'" nz-icon
+                [nzType]="rejected[2].Certification?'check-circle':'close-circle'"></i>
+            </td>
+
+
+            <td><a routerLink="../gigprenuer-details">View</a>
+          </tr>
+        </tbody>
+      </nz-table>
+    </nz-tab>
+  </nz-tabset>
+</div>
