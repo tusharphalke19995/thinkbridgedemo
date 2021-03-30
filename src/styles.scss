@@ -1,4 +1,79 @@
 @import url('./assets/lib/hljs/styles/atom-one-light.css');
 @import url('../node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css');
 @import url('../node_modules/@fortawesome/fontawesome-free/css/all.min.css');
-@import './assets/scss/app.scss'
+@import './assets/scss/app.scss';
+html,
+body {
+    height: 100%;
+    background-color: #cccccc2e;
+}
+.konnecteum-name {
+    font-family: 'neo latina', sans-serif !important;
+    font-size: 25px;
+    margin-left: 10px;
+    font-weight: 700;
+}
+@media (max-width: 480px) {
+    .container-fluid {
+        padding: 0 5px 5px !important;
+    }
+    .d-xs-none {
+        display: none !important;
+    }
+    .d-xs-block {
+        display: block !important;
+    }
+    .d-xs-flex {
+        display: flex !important;
+    }
+    .content-center-xs {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    .flex-wrap-xs {
+        flex-wrap: wrap !important;
+    }
+    .w-100-xs {
+        width: 100%;
+    }
+    .my-3-xs {
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+    .mb-3-xs {
+        margin-bottom: 1rem !important;
+    }
+    .pb-0-xs {
+        padding-bottom: 0 !important;
+    }
+    .mb-1-xs {
+        margin-bottom: 0.25rem !important;
+    }
+    .invite-content {
+        .header_content {
+            margin: 2rem 0 0 !important;
+        }
+    }
+    .full_view_chat_container {
+        margin-top: 5rem;
+        .container-fluid {
+            position: relative !important;
+            top: unset !important;
+            left: unset !important;
+            transform: unset !important;
+        }
+        .col-lg-8 {
+            .chat_card_header {
+                .content-horizontal-center {
+                    flex: 3;
+                }
+            }
+        }
+    }
+}
+
+.header,
+.header img {
+    height: 50px;
+}

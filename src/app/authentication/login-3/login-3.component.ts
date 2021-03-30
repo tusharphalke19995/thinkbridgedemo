@@ -35,7 +35,7 @@ export class Login3Component {
             'email': this.loginForm?.get('userName').value,
             'password': this.loginForm?.get('password').value
         }
-        this.router.navigate(['default'])
+        this.router.navigate(['dashboard/default'])
 
         console.log("data",data)
     }
