@@ -1,0 +1,95 @@
+<div class="row m-b-30">
+
+  <div class="col-lg-4">
+      <button nz-button nzType="primary" (click) = "gotToBack()">
+          <span>Back</span>
+      </button>
+  </div>
+</div>
+  <nz-table class = "m-t-40" [nzData] = "questionList">
+    <thead>
+      <tr>
+        <th>Questions</th>
+        <th>Answers</th>
+      </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let data of questionList,let i = index">
+        <td>{{data.Question}}</td>
+        <td style="max-width: 250px;">{{data.Answer}}</td>
+        <td>
+          <a nz-dropdown [nzDropdownMenu]="menu">
+            <i nz-icon nzType="ellipsis"></i>
+          </a>
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu nzSelectable>
+              <li nz-menu-item (click)="modifyQuestion(i)">Modify</li>
+              <li nz-menu-item class="text-danger" (click)="deleteModal(i)">Delete</li>
+            </ul>
+          </nz-dropdown-menu>
+        </td>
+     </tr>
+    </tbody>
+  </nz-table>
+
+  <nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Add Question"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+>
+  <h6>Question</h6>
+  <div>
+    <input nz-input placeholder="Enter Question" id="question" >
+  </div>
+ 
+    <h6 class="m-t-50">Answer</h6>
+    <div>
+      <textarea nz-input placeholder="Enter Answer" id="answer"></textarea>
+    </div>
+</nz-modal>
+
+<nz-modal
+  [(nzVisible)]="modifyQuestionFlag"
+  nzTitle="Modify Question"
+  (nzOnCancel)="CancelModify()"
+  (nzOnOk)="ConfirmModify()"
+  [nzFooter]="modifyFooter"
+>
+  <h6>Question</h6>
+  <div>
+    <textarea nz-input placeholder="Enter Question" id="modifiedquestion"  [nzAutosize]="{ minRows: 1, maxRows: 3 }">
+      {{questionList[selectedQuestion].Question}}
+    </textarea>
+  </div>
+ 
+    <h6 class="m-t-50">Answer</h6>
+    <div>
+      <textarea nz-input placeholder="Enter Answer" id="modifiedanswer" [nzAutosize]="{ minRows: 4, maxRows: 7 }">
+        {{questionList[selectedQuestion].Answer}}
+      </textarea>
+    </div>
+    <ng-template #modifyFooter>
+      <button nz-button nzType="primary" (click)="ConfirmModify()">Save</button>
+      <button nz-button nzType="primary" (click)="CancelModify()">Cancel</button>
+    </ng-template>
+</nz-modal>
+
+<nz-modal
+  [(nzVisible)]="deleteModalFlag"
+  nzTitle="Add Question"
+  (nzOnCancel)="CancelDelete()"
+  (nzOnOk)="ConfirmDelete()"
+  [nzFooter]="deleteFooter"
+>
+<div style="text-align: center;">
+  <i nz-icon class="ant-avatar-orange" nzType="exclamation-circle"  nzTheme="outline"></i>
+  <h2>Delete FAQ Category</h2>
+  <h6>Are you sure you want to do it?This action will permanently delete this record</h6>
+
+<ng-template #deleteFooter>
+    <button nz-button nzType="primary" (click)="ConfirmDelete()">Yes, Continue</button>
+    <button nz-button nzType="danger" (click)="CancelDelete()">No, Cancel</button>
+  </ng-template>
+</div>
+</nz-modal>

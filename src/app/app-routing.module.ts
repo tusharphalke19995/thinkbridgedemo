@@ -8,26 +8,16 @@ import { FullLayout_ROUTES } from "./shared/routes/full-layout.routes";
 import { CommonLayout_ROUTES } from "./shared/routes/common-layout.routes";
 
 const appRoutes: Routes = [
-    {
-        path: '',
-        redirectTo: 'login-3',
-        pathMatch: 'full'
-    
-    },
+ 
 
     { 
         path: '', 
         component: CommonLayoutComponent,
         children: CommonLayout_ROUTES 
     },
-    { 
-        path: '', 
-        component: FullLayoutComponent, 
-        children: FullLayout_ROUTES
-    },
     {
         path: '',
-        loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule)
+        loadChildren: () => import('./manage-inventory/manage-inventory.module').then(m => m.ManagerFAQModule)
     },
 ];
 
