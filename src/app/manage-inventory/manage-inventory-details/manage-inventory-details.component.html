@@ -6,110 +6,49 @@
       </button>
   </div>
 </div>
-<nz-tabset>
-    <nz-tab nzTitle="thinkbridge">
-      <nz-table [nzData] = "thinkbridge">
-        <thead>
-          <tr>
-            <th *ngFor="let obj of header">{{obj}}</th>
-          </tr>
-        </thead>
-        <tbody>
-         <tr *ngFor="let data of thinkbridge,let i =index">
-            <td>{{data.Category}}</td>
-            <td>{{data.FAQ}}</td>
-            <td>{{data.Last_Updated}}</td>
-            <td><a routerLink = "../inveentory-list">View</a></td>
-            <td>
-              <a nz-dropdown [nzDropdownMenu]="menu">
-                <i nz-icon nzType="ellipsis"></i>
-              </a>
-              <nz-dropdown-menu #menu="nzDropdownMenu">
-                <ul nz-menu nzSelectable>
-                  <li nz-menu-item (click)="modifyQuestion(i,'thinkbridge')">Modify</li>
-                  <li nz-menu-item text-danger (click)="deleteModal(i,'thinkbridge')">Delete</li>
-                </ul>
-              </nz-dropdown-menu>
-            </td>
-         </tr>
-        </tbody>
-      </nz-table>
-    </nz-tab>
-  </nz-tabset>
-
-
-  <nz-modal
-  [(nzVisible)]="isVisible"
-  nzTitle="Add New Category"
-  (nzOnCancel)= "handleCancel()"
-  (nzOnOk)= "handleOk()"
->
-  <h6>Category Type</h6>
-  <button nz-button nz-dropdown [nzDropdownMenu]="menu1" [nzTrigger]="'click'">
-  {{selectedCategory}}
-    <i nz-icon nzType="down"></i>
-  </button>
-  <nz-dropdown-menu #menu1="nzDropdownMenu">
-    <ul nz-menu>
-      <li
-        nz-menu-item
-        (click)="selectCategory(obj)"
-        *ngFor="let obj of categoryTypeArray"
-      >
-        {{ obj }}
-      </li>
-    </ul>
-  </nz-dropdown-menu>
-  <ng-container>
-    <h6 class="m-t-50">Category Name</h6>
-    <div>
-      <input nz-input placeholder="Enter Category Name" id="category-name">
-    </div>
-    
-  </ng-container>
-</nz-modal>
 
 <nz-modal
-  [(nzVisible)]="modifyQuestionFlag"
-  nzTitle="Modify Record"
-  (nzOnCancel)="CancelModify()"
-  (nzOnOk)="ConfirmModify()"
-  [nzFooter]="modifyFooter"
+[(nzVisible)]="isVisible"
+nzTitle="Add New Category"
+(nzOnCancel)= "handleCancel()"
+(nzOnOk)= "handleOk()"
+[nzWidth] = 650
 >
-  <h6>Category</h6>
-  <div>
-    <textarea nz-input id="modifiedcategory"  rows="1">
-      {{modifyArray[selectedDetail].Category}}
-    </textarea>
-  </div>
- 
-    <h6 class="m-t-50">FAQ</h6>
-    <div>
-      <textarea nz-input id="modifiedFAQ" [nzAutosize]="{ minRows: 4, maxRows: 4 }">
-        {{modifyArray[selectedDetail].FAQ}}
-      </textarea>
+<form [formGroup]="createInventoryForm" >
+  <div class = "row">
+    <div class="col-sm-3">
+        <h6 class="font-weight-light">Inventory Name <span class="text-danger m-l-5">*</span></h6>
+        
     </div>
-    <ng-template #modifyFooter>
-      <button nz-button nzType="primary" (click)="ConfirmModify()">Save</button>
-      <button nz-button nzType="primary" (click)="CancelModify()">Cancel</button>
-    </ng-template>
-</nz-modal>
-
-<nz-modal
-  [(nzVisible)]="deleteModalFlag"
-  nzTitle="Delete Record"
-  (nzOnCancel)="CancelDelete()"
-  (nzOnOk)="ConfirmDelete()"
-  [nzFooter]="deleteFooter"
->
-<div style="text-align: center;">
-  <i nz-icon class="ant-avatar-orange" nzType="exclamation-circle"  nzTheme="outline"></i>
-  <h2>Delete Inventory</h2>
-  <h6>Are you sure you want to do it?This action will permanently delete this record</h6>
-
-<ng-template #deleteFooter>
-    <button nz-button nzType="primary" (click)="ConfirmDelete()">Yes, Continue</button>
-    <button nz-button nzType="danger" (click)="CancelDelete()">No, Cancel</button>
-  </ng-template>
+    <div class="col-sm-9">
+        <input type="text" nz-input style="border: 1px solid grey;" nzSize="small" formControlName="inventoryname" placeholder="Enter inventory name"> 
+    </div>
 </div>
+<div class="row m-t-20">
+    <div class="col-sm-3">
+        <h6 class="font-weight-light">Short Desciption</h6>
+    </div>
+    <div class="col-sm-9">
+        <textarea nz-input style="border: 1px solid grey;" nzAutosize  formControlName="shortdesciption" placeholder="Enter short desciption" ></textarea>
+    </div>
+</div>
+<div class="row m-t-20">
+  <div class="col-sm-3">
+      <h6 class="font-weight-light">Long Desciption</h6>
+  </div>
+  <div class="col-sm-9">
+      <textarea nz-input style="border: 1px solid grey;" nzAutosize formControlName="longdesciption" placeholder="Enter long desciption " ></textarea>
+  </div>
+</div>
+
+
+<div class="row m-t-20">
+    <div class="col-sm-3">
+        <h6 class="font-weight-light">Price</h6>
+    </div>
+    <div class="col-sm-6">
+        <input type="text" nz-input style="border: 1px solid grey;" nzSize="small"  formControlName="price" placeholder="Enter price ">
+    </div>
+</div>
+</form>
 </nz-modal>

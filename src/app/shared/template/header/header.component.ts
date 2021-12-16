@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ThemeConstantService } from '../../services/theme-constant.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class HeaderComponent{
     isFolded : boolean;
     isExpand : boolean;
 
-    constructor( private themeService: ThemeConstantService) {}
+    constructor( private themeService: ThemeConstantService, private router:Router) {}
 
     ngOnInit(): void {
         this.themeService.isMenuFoldedChanges.subscribe(isFolded => this.isFolded = isFolded);
@@ -40,30 +41,7 @@ export class HeaderComponent{
         this.quickViewVisible = !this.quickViewVisible;
     }
 
-    notificationList = [
-        {
-            title: 'You received a new message',
-            time: '8 min',
-            icon: 'mail',
-            color: 'ant-avatar-' + 'blue'
-        },
-        {
-            title: 'New user registered',
-            time: '7 hours',
-            icon: 'user-add',
-            color: 'ant-avatar-' + 'cyan'
-        },
-        {
-            title: 'System Alert',
-            time: '8 hours',
-            icon: 'warning',
-            color: 'ant-avatar-' + 'red'
-        },
-        {
-            title: 'You have a new update',
-            time: '2 days',
-            icon: 'sync',
-            color: 'ant-avatar-' + 'gold'
-        }
-    ];
+    logout(){
+      this.router.navigateByUrl('/')
+    }
 }

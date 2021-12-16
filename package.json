@@ -29,6 +29,7 @@
     "jquery": "^3.5.1",
     "ng-chartjs": "0.2.0",
     "ng-zorro-antd": "^10.0.0-beta.4",
+    "ng6-toastr-notifications": "^1.0.4",
     "ngx-highlightjs": "^4.0.2",
     "ngx-infinite-scroll": "^9.0.0",
     "ngx-perfect-scrollbar": "^10.0.1",

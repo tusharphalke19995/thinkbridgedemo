@@ -12,7 +12,7 @@ const routes: Routes = [
     }
   },
   {
-    path : 'inveentory-list',
+    path : 'inventory-list',
     component :InventoryListComponent,
    
   }

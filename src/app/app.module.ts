@@ -17,6 +17,12 @@ import { FullLayoutComponent } from './layouts/full-layout/full-layout.component
 
 import { NgChartjsModule } from 'ng-chartjs';
 import { ThemeConstantService } from './shared/services/theme-constant.service';
+import { GetInventoryService } from './services/get-inventory.service';
+import { SharedService } from './services/shared.service';
+import { GetAllInventoryService } from './services/get-all-inventory.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from "ng6-toastr-notifications";
+
 
 registerLocaleData(en);
 
@@ -33,7 +39,8 @@ registerLocaleData(en);
         NzBreadCrumbModule,
         TemplateModule,
         SharedModule,
-        NgChartjsModule
+        NgChartjsModule,
+        ToastrModule.forRoot()
     ],
     providers: [
         { 
@@ -44,7 +51,7 @@ registerLocaleData(en);
             provide: LocationStrategy, 
             useClass: PathLocationStrategy
         },
-        ThemeConstantService
+        ThemeConstantService,GetInventoryService, SharedService, GetAllInventoryService
     ],
     bootstrap: [AppComponent]
 })

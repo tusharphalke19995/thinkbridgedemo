@@ -6,24 +6,28 @@
       </button>
   </div>
 </div>
-  <nz-table class = "m-t-40" [nzData] = "questionList">
+  <nz-table class = "m-t-40" [nzData] = "inventoryList">
     <thead>
       <tr>
-        <th>Questions</th>
-        <th>Answers</th>
+        <th>Inventory Name</th>
+        <th>Long Desciption</th>
+        <th>Short Desciption</th>
+        <th>Price(Rs)</th>
       </tr>
     </thead>
     <tbody>
-     <tr *ngFor="let data of questionList,let i = index">
-        <td>{{data.Question}}</td>
-        <td style="max-width: 250px;">{{data.Answer}}</td>
+     <tr *ngFor="let data of inventoryList,let i = index">
+        <td>{{data.inventoryname}}</td>
+        <td style="max-width: 250px;">{{data.shortdesciption}}</td>
+        <td style="max-width: 250px;">{{data.longdesciption}}</td>
+        <td style="max-width: 250px;">{{data.price}}</td>
         <td>
           <a nz-dropdown [nzDropdownMenu]="menu">
             <i nz-icon nzType="ellipsis"></i>
           </a>
           <nz-dropdown-menu #menu="nzDropdownMenu">
             <ul nz-menu nzSelectable>
-              <li nz-menu-item (click)="modifyQuestion(i)">Modify</li>
+              <li nz-menu-item (click)="modifyInventory(i)">Modify</li>
               <li nz-menu-item class="text-danger" (click)="deleteModal(i)">Delete</li>
             </ul>
           </nz-dropdown-menu>
@@ -32,59 +36,52 @@
     </tbody>
   </nz-table>
 
-  <nz-modal
-  [(nzVisible)]="isVisible"
-  nzTitle="Add Question"
-  (nzOnCancel)="handleCancel()"
-  (nzOnOk)="handleOk()"
->
-  <h6>Question</h6>
-  <div>
-    <input nz-input placeholder="Enter Question" id="question" >
-  </div>
- 
-    <h6 class="m-t-50">Answer</h6>
-    <div>
-      <textarea nz-input placeholder="Enter Answer" id="answer"></textarea>
-    </div>
-</nz-modal>
 
 <nz-modal
-  [(nzVisible)]="modifyQuestionFlag"
-  nzTitle="Modify Question"
+  [(nzVisible)]="modifyInventoryFlag"
+  nzTitle="Modify Inventory"
   (nzOnCancel)="CancelModify()"
   (nzOnOk)="ConfirmModify()"
   [nzFooter]="modifyFooter"
 >
-  <h6>Question</h6>
+  <h6>Inventory Name</h6>
   <div>
-    <textarea nz-input placeholder="Enter Question" id="modifiedquestion"  [nzAutosize]="{ minRows: 1, maxRows: 3 }">
-      {{questionList[selectedQuestion].Question}}
-    </textarea>
+      <textarea nz-input placeholder="Enter inventoryname" id="modifiedinventoryname" [nzAutosize]="{ minRows: 1, maxRows: 3 }">
+        {{inventoryList[selectedInventory]?.inventoryname}}
+      </textarea>
   </div>
  
-    <h6 class="m-t-50">Answer</h6>
+    <h6 class="m-t-50">short Desciption</h6>
     <div>
-      <textarea nz-input placeholder="Enter Answer" id="modifiedanswer" [nzAutosize]="{ minRows: 4, maxRows: 7 }">
-        {{questionList[selectedQuestion].Answer}}
+      <textarea nz-input placeholder="Enter shortdesciption" id="modifiedshortdesciption" [nzAutosize]="{ minRows: 1, maxRows: 3 }">
+        {{inventoryList[selectedInventory]?.shortdesciption}}
       </textarea>
     </div>
-    <ng-template #modifyFooter>
-      <button nz-button nzType="primary" (click)="ConfirmModify()">Save</button>
-      <button nz-button nzType="primary" (click)="CancelModify()">Cancel</button>
-    </ng-template>
+    <h6>Long Desciption</h6>
+    <div>
+      <textarea nz-input placeholder="Enter longdesciption" id="modifiedlongdesciption"  [nzAutosize]="{ minRows: 1, maxRows: 5 }">
+        {{inventoryList[selectedInventory]?.longdesciption}}
+      </textarea>
+    </div>
+   
+      <h6 class="m-t-50">Prie</h6>
+      <div>
+        <textarea nz-input placeholder="Enter price" id="modifiedprice" [nzAutosize]="{ minRows: 1, maxRows: 7 }">
+          {{inventoryList[selectedInventory]?.price}}
+        </textarea>
+      </div>
 </nz-modal>
 
 <nz-modal
   [(nzVisible)]="deleteModalFlag"
-  nzTitle="Add Question"
+  nzTitle="Add Inventory"
   (nzOnCancel)="CancelDelete()"
   (nzOnOk)="ConfirmDelete()"
   [nzFooter]="deleteFooter"
 >
 <div style="text-align: center;">
   <i nz-icon class="ant-avatar-orange" nzType="exclamation-circle"  nzTheme="outline"></i>
-  <h2>Delete FAQ Category</h2>
+  <h2>Delete Inventory </h2>
   <h6>Are you sure you want to do it?This action will permanently delete this record</h6>
 
 <ng-template #deleteFooter>
